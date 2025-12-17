@@ -9,6 +9,8 @@ while True:
     video=cv2.flip(frame,1)
     gray_video=cv2.cvtColor(video,cv2.COLOR_BGR2GRAY)
 
+
+    #FACE DETECTION
     face=frontalface_detection.detectMultiScale(gray_video,1.2,6)
     for (x,y,w,h) in face:
         cv2.rectangle(video,(x,y),(x+w,y+h),(0,0,255),5)
@@ -17,7 +19,7 @@ while True:
     cv2.imshow('face_detection', video)
 
     key = cv2.waitKey(15) & 0xff
-    if key == 'q':
+    if key == ord('q'):
         break
                               
 cv2.destroyAllWindows()
